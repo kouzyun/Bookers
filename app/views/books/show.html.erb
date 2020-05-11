@@ -1,11 +1,25 @@
-<%= flash[:notice] %>
-<%= flash[:success]  %>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Bookers</title>
+	<%= stylesheet_link_tag 'show', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+	<div class="flash">
+		<%= flash[:notice] %>
+	</div>
+	<div class="flash">
+		<%= flash[:success]  %>
+	</div>
+	<div class="text-box">
+	<p><strong>title: </strong><%= @book.title %></p>
 
-<h2>title</h2>
-<p><%= @book.title %></p>
-<h2>本文</h2>
-<p><%= @book.body %></p>
+	<p><strong>body: </strong><%= @book.body %></p>
+	</div>
 
-
-<%= link_to "edit", edit_book_path(@book.id) %>
-<%= link_to "back", :back %>
+	<ul class="menu">
+		<li><%= link_to "edit", edit_book_path(@book.id) %></li>
+		<li><%= link_to "back", books_path %></li>
+	</ul>
+</body>

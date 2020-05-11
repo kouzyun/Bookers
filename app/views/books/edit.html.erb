@@ -1,14 +1,30 @@
-<h1>Editing book</h1>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Bookers</title>
+	<%= stylesheet_link_tag 'edit', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+	<% if flash[:notice] %>
+	      <div class="flash">
+	        <%= flash[:notice] %>
+	      </div>
+	    <% end %>
 
-<%= form_for(@book, url:"/books/#{@book.id}") do |f| %>
-	<h4>Title</h4>
-	<%= f.text_field :title %>
-	<h4>body</h4>
-	<%= f.text_area :body %>
-	<%= f.submit 'Update Book' %>
+	<h2>Editing book</h2>
 
-	<%= link_to "Show", book_path(@book.id) %>
-	<%= link_to "back", :back %>
+	<%= form_for(@book, url:"/books/#{@book.id}") do |f| %>
+		<h4>Title</h4>
+		<%= f.text_field :title %>
+		<h4>body</h4>
+		<%= f.text_area :body %>
+		<%= f.submit 'Update Book' %>
 
-
-<% end %>
+		<ul class="menu">
+			<li><%= link_to "Show", books_path(@book.id) %></li>
+			<li><%= link_to "back", books_path %></li>
+		</ul>
+	<% end %>
+</body>
+</html>
