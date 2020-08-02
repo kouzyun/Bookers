@@ -8,7 +8,8 @@ Bundler.require(*Rails.groups)
 
 module Bookers
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
+  	config.paths.add 'lib',eager_load: true
+    # Initialize configuration sdefaults for originally generated Rails version.
     config.load_defaults 5.2
 
     # Settings in config/environments/* take precedence over those specified here.
